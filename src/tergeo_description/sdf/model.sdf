@@ -158,7 +158,7 @@
                 <xyz>0 1 0</xyz>
             </axis>
         </joint>
-        <!-- <plugin name="tergeo_controller" filename="libgazebo_ros_diff_drive.so">
+        <plugin name="tergeo_controller" filename="libgazebo_ros_diff_drive.so">
             <commandTopic>cmd_vel</commandTopic>
             <odometryTopic>odom</odometryTopic>
             <odometryFrame>odom</odometryFrame>
@@ -177,7 +177,7 @@
             <wheelAcceleration>1</wheelAcceleration>
             <wheelTorque>10</wheelTorque>
             <rosDebugLevel>na</rosDebugLevel>
-        </plugin> -->
+        </plugin>
         <link name ='imu_link'>
             <pose>0 0 0.3 0 0 0</pose>
             <visual name = 'imu_visual'>
@@ -191,7 +191,7 @@
                     <script>Gazebo/FlatBlack</script>
                 </material>
             </visual>
-            <!-- <sensor type="imu" name='imu_sensor'>
+            <sensor type="imu" name='imu_sensor'>
                 <always_on>true</always_on>
                 <visualize>false</visualize>
                 <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
@@ -216,7 +216,7 @@
                         </x>
                     </linear_acceleration>
                 </imu>
-            </sensor> -->
+            </sensor>
         </link>
         <joint type="fixed" name="imu_joint">
             <parent>chassis_link</parent>
@@ -252,7 +252,7 @@
                 </inertia>
             </inertial>
 
-            <!-- <sensor type="ray" name="left_sonar_sensor">
+            <sensor type="ray" name="left_sonar_sensor">
                 <pose>0 0 0 0 0 0</pose>
                 <visualize>true</visualize>
                 <update_rate>5</update_rate>
@@ -286,7 +286,7 @@
                     <fov>0.2618</fov>
                     <radiation>ultrasound</radiation>
                 </plugin>
-            </sensor> -->
+            </sensor>
         </link>
         <joint type="fixed" name ='left_sonar_joint'>
             <parent>chassis_link</parent>
@@ -322,7 +322,7 @@
                 </inertia>
             </inertial>
 
-            <!-- <sensor type="ray" name="right_sonar_sensor">
+            <sensor type="ray" name="right_sonar_sensor">
                 <pose>0 0 0 0 0 0</pose>
                 <visualize>true</visualize>
                 <update_rate>5</update_rate>
@@ -356,7 +356,7 @@
                     <fov>0.2618</fov>
                     <radiation>ultrasound</radiation>
                 </plugin>
-            </sensor> -->
+            </sensor>
         </link>
         <joint type="fixed" name ='right_sonar_joint'>
             <parent>chassis_link</parent>
@@ -405,7 +405,7 @@
                 <ray>
                     <scan>
                         <horizontal>
-                            <samples>180</samples>
+                            <samples>2100</samples>
                             <resolution>1</resolution>
                             <min_angle>-3.1415</min_angle>
                             <max_angle>3.1415</max_angle>
@@ -419,7 +419,7 @@
                     </scan>
                     <range>
                         <min>0.2</min>
-                        <max>1</max>
+                        <max>100</max>
                         <resolution>0.02</resolution>
                     </range>
                     <noise>
@@ -433,7 +433,7 @@
                     <topicName>/sensor/lidar16/top/pointcloud</topicName>
                     <frameName>top_lidar16_link</frameName>
                     <min_range>0.2</min_range>
-                    <max_range>1</max_range>
+                    <max_range>100</max_range>
                     <!-- <min_intensity>0.001</min_intensity> -->
                     <gaussianNoise>0.02</gaussianNoise>
                 </plugin>
