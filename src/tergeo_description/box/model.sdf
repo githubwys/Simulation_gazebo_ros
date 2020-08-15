@@ -1,0 +1,64 @@
+<?xml version='1.0'?>
+<sdf version ='1.6'>
+  <model name ='box'>
+    <pose>1 2 0 0 0 0</pose>
+    <link name ='link'>
+      <pose>0 0 .5 0 0 0</pose>
+      <collision name ='collision'>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name ='visual'>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </visual>
+      <sensor type="ray" name="laser_16">
+        <pose>0 0 0 0 0 0</pose>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>180</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.1415</min_angle>
+              <max_angle>3.1415</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>16</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.2618</min_angle>
+              <max_angle>0.2618</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.2</min>
+            <max>1</max>
+            <resolution>0.02</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.0</stddev>
+          </noise>
+        </ray>
+        <plugin name="lidar_sensor" filename="libgazebo_ros_velodyne_laser.so">
+          <robotNamespace>box</robotNamespace>
+          <topicName>/sensor/lidar16/top/pointcloud</topicName>
+          <frameName>top_lidar16_link</frameName>
+          <min_range>0.2</min_range>
+          <max_range>1</max_range>
+          <!-- <min_intensity>0.001</min_intensity> -->
+          <gaussianNoise>0.02</gaussianNoise>
+        </plugin>
+      </sensor>
+    </link>
+  </model>
+</sdf>

@@ -41,7 +41,7 @@ include_directories(
 ################################################################################
 # Install
 ################################################################################
-install(DIRECTORY meshes rviz urdf world
+install(DIRECTORY meshes rviz urdf world sdf pr2 box
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
